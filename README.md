@@ -8,7 +8,9 @@ News:
 
 <img src="media/overview.png" width="600">
 
+# SHOT7M2
+You can already download SHOT7M2 on [HuggingFace](https://huggingface.co/datasets/amathislab/SHOT7M2)!
+
 # Reference
 
 Stoffl, Bonnetto, d'Ascoli & Mathis: "Elucidating the Hierarchical Nature of Behavior with Masked Autoencoders", ECCV 2024
-
