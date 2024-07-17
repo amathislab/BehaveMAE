@@ -1,3 +1,12 @@
+#
+# Copyright 2024-present by A. Mathis Group and contributors. All rights reserved.
+#
+"""
+## Generate hBABEL dataset
+functions:
+- `convert_babel_train_val` is a function to convert BABEL data in MABe22 format considering either train or val data,
+"""
+
 import argparse
 import os
 import json
