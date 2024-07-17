@@ -6,7 +6,7 @@ Please cite their work and our ECCV paper when using hBabel!
 
 ## Generation of hBABEL dataset
 
-# Downloading Data
+### Downloading Data
 
 Download the 3D pose data directly from the [AMASS website](https://amass.is.tue.mpg.de/). Then run this command to extract the AMASS sequences
 
@@ -16,7 +16,7 @@ python scripts/process_amass.py --input-path /path/to/data --output-path path/of
 
 Download the data from the [TEACH website](https://teach.is.tue.mpg.de/) and follow the instructions given in the [TEACH github page](https://github.com/athn-nik/teach?tab=readme-ov-file).
 
-# Data conversion to hBabel
+### Data conversion to hBabel
 
 Finally, you can generate the hBABEL dataset by running the following command. </br>
 
