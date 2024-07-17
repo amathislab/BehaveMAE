@@ -53,11 +53,11 @@ def convert_babel_train_val(
     clip_length = {}
     seq_count = 0
     frame_number_map_train = np.load(
-        f"../../mabe22-eval/round1/metadata/babel/train/frame_number_map_train.npy",
+        "./hBABEL/frame_number_map_train.npy",
         allow_pickle=True,
     ).item()
     frame_number_map_val = np.load(
-        f"../../mabe22-eval/round1/metadata/babel/val/frame_number_map_val.npy",
+        "./hBABEL/frame_number_map_val.npy",
         allow_pickle=True,
     ).item()
     empty_episodes = []
@@ -217,7 +217,8 @@ def convert_babel_train_val(
 
 
 if __name__ == "__main__":
-    path_to_babel_teach = "/media18/data/andy/BABEL_teach/babel-teach"
-    output_dir = "/media18/data/andy/BABEL_teach"
+    # python hBABEL/generate_hbabel.py
+    path_to_babel_teach = "[PATH_TO_BABEL_TEACH]"
+    output_dir = "[PATH_WHERE_TO_SAVE]"
     convert_babel_train_val(path_to_babel_teach, output_dir, train_on="train", seeds=[42])
     convert_babel_train_val(path_to_babel_teach, output_dir, train_on="val", seeds=[42])
