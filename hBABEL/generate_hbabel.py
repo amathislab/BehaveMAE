@@ -1,6 +1,28 @@
+import argparse
 import os
-import numpy as np
 import json
+import numpy as np
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Generate hBABEL dataset from BABEL-teach"
+    )
+    parser.add_argument(
+        "--babel_teach_path",
+        type=str,
+        help="Path to the BABEL-teach folder which contains train.json and val.json",
+    )
+    parser.add_argument(
+        "--output_dir",
+        default="/dataset",
+        type=str,
+        help="Path to save the hBABEL dataset",
+    )
+
+    args = parser.parse_args()
+    return args
+
 
 def convert_babel_train_val(
     babel_teach_path: str,
@@ -27,7 +49,6 @@ def convert_babel_train_val(
     assert train_on in ["train", "val"]
 
     # Load data file
-    output_dir = os.path.join(output_dir, "mabe_format_trainval")
     os.makedirs(output_dir, exist_ok=True)
     train_data, val_data = None, None
     for file_path in [
@@ -218,7 +239,13 @@ def convert_babel_train_val(
 
 if __name__ == "__main__":
     # python hBABEL/generate_hbabel.py
-    path_to_babel_teach = "[PATH_TO_BABEL_TEACH]"
-    output_dir = "[PATH_WHERE_TO_SAVE]"
-    convert_babel_train_val(path_to_babel_teach, output_dir, train_on="train", seeds=[42])
+
+    args = parse_args()
+    path_to_babel_teach = args.babel_teach_path
+    output_dir = args.output_dir
+    print("Generating train data...")
+    convert_babel_train_val(
+        path_to_babel_teach, output_dir, train_on="train", seeds=[42]
+    )
+    print("Generating val data...")
     convert_babel_train_val(path_to_babel_teach, output_dir, train_on="val", seeds=[42])
