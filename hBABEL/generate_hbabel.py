@@ -1,6 +1,9 @@
 #
-# Copyright 2024-present by A. Mathis Group and contributors. All rights reserved.
+# Copyright 2024-present by Stoffl, Bonnetto, d'Ascoli & Mathis: 
+# "Elucidating the Hierarchical Nature of Behavior with Masked Autoencoders", ECCV 2024
 #
+
+
 """
 ## Generate hBABEL dataset
 functions:
