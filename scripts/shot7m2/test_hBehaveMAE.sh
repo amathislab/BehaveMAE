@@ -1,0 +1,23 @@
+
+experiment=experiment1
+
+python run_test.py \
+    --path_to_data_dir data/Shot7M2/test/test_dictionary_poses.npy \
+    --dataset shot7m2 \
+    --embedsum False \
+    --fast_inference False \
+    --batch_size 512 \
+    --model gen_hiera \
+    --input_size 400 1 72 \
+    --stages 2 3 4 \
+    --q_strides "2,1,4;2,1,6" \
+    --mask_unit_attn True False False \
+    --patch_kernel 2 1 3 \
+    --init_embed_dim 96 \
+    --init_num_heads 2 \
+    --out_embed_dims 78 128 256 \
+    --distributed \
+    --num_frames 400 \
+    --pin_mem \
+    --num_workers 8 \
+    --output_dir outputs/shot7m2/${experiment}
