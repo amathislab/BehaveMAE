@@ -22,3 +22,16 @@ python run_test.py \
     --pin_mem \
     --num_workers 8 \
     --output_dir outputs/hBABEL/${experiment}
+
+
+cd hierAS-eval
+
+nr_submissions=$(ls ../outputs/hBABEL/${experiment}/test_submission_* 2>/dev/null | wc -l)
+files=($(seq 0 $((nr_submissions - 1))))
+
+parallel --line-buffer \
+    python evaluator.py \
+        --task hBABEL --output-dir results \
+        --labels ../data/hBABEL/hbabel_val_test_actions_val_top_120_60_filtered.npy \
+        --submission ../outputs/hBABEL/${experiment}/test_submission_{}.npy \
+    ::: "${files[@]}"

@@ -1,0 +1,3 @@
+{"seeds": [42, 43, 44], 
+"task_id_list": ["experiment_day", "time_of_day", "strain", "approaches", "chases", "close", "contact", "huddles", "oral_ear_contact", "oral_genital_contact", "oral_oral_contact", "watching", "lights"],
+"sequence_level_tasks": ["experiment_day", "strain", "lights"]}

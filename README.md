@@ -54,7 +54,7 @@ bash scripts/shot7m2/train_hBehaveMAE.sh 2
 ```
 
 ## ⤴️ Inference
-To extract hierarchical embeddings after training:
+To extract hierarchical embeddings after training and evaluate these embeddings:
 ```
 bash scripts/shot7m2/test_hBehaveMAE.sh
 ```
@@ -101,8 +101,13 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
 
 We thank the authors of the following repositories for their amazing work, on which part of our code is based:
 - **[Hiera: A Hierarchical Vision Transformer without the Bells-and-Whistles](https://github.com/facebookresearch/hiera)**
+- **[Evaluator code for MABe 2022 Challenge](https://github.com/damaggu/MABe2022)**
 
+## 🔒 Licensing
 
-## 🔒 License
+This repository is licensed under two different licenses depending on the codebase:
 
-This project is under the [Apache License, Version 2.0](https://opensource.org/licenses/Apache-2.0). See [LICENSE](LICENSE) for details.
+- **Apache 2.0 License**: The majority of the project, including all original code and modifications.
+- **CC BY-NC 4.0 License**: The code inside the `hierAS-eval/` directory is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. This means it cannot be used for commercial purposes.
+
+Please refer to the respective `LICENSE` file in the root of the repository and in `hierAS-eval/` for more details.
