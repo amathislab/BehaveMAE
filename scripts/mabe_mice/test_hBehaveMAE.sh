@@ -22,3 +22,16 @@ python run_test.py \
     --num_workers 8 \
     --fill_holes False \
     --output_dir outputs/mice/${experiment}
+
+
+cd hierAS-eval
+            
+nr_submissions=$(ls ../outputs/mice/${experiment}/test_submission_* 2>/dev/null | wc -l)
+files=($(seq 0 $((nr_submissions - 1))))
+
+parallel --line-buffer \
+    python evaluator.py \
+        --task mabe_mice --output-dir results \
+        --labels ../data/MABe22/mouse_triplets_test_labels.npy \
+        --submission ../outputs/mice/${experiment}/test_submission_{}.npy \
+    ::: "${files[@]}"
