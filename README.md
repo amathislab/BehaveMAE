@@ -46,7 +46,7 @@ The easiest way to set up the environment is by using the provided `environment.
 For downloading and preparing the three benchmarks Shot7M2 ([download here 🏀](https://huggingface.co/datasets/amathislab/SHOT7M2)), hBABEL, and MABe22 we compiled detailed instructions in the [datasets README](datasets/README.md).
 
 
-## 🔄 Pre-training (code)
+## 🔄 Pre-training
 
 To pre-train a model on 2 GPUs:
 ```
@@ -85,14 +85,14 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
   publisher={Cold Spring Harbor Laboratory}
 }
 ```
-#### 📘 ECCV Version (coming soon)
+#### 📘 ECCV Version
 ```
-@inproceedings{stoffl2024behavemae,
-  title={Elucidating the Hierarchical Nature of Behavior with Masked Autoencoders},
-  author={Stoffl, Lucas and Bonnetto, Andy and d'Ascoli, Stéphane and Mathis, Alexander},
-  booktitle={European conference on computer vision},
-  pages={??},
-  year={2024},
+@inproceedings{stoffl2025elucidating,
+  title={Elucidating the hierarchical nature of behavior with masked autoencoders},
+  author={Stoffl, Lucas and Bonnetto, Andy and d’Ascoli, St{\'e}phane and Mathis, Alexander},
+  booktitle={European Conference on Computer Vision},
+  pages={106--125},
+  year={2025},
   organization={Springer}
 }
 ```
