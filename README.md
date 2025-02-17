@@ -87,12 +87,12 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
 ```
 #### 📘 ECCV Version
 ```
-@inproceedings{stoffl2025elucidating,
+@inproceedings{stoffl2024elucidating,
   title={Elucidating the hierarchical nature of behavior with masked autoencoders},
   author={Stoffl, Lucas and Bonnetto, Andy and d’Ascoli, St{\'e}phane and Mathis, Alexander},
   booktitle={European Conference on Computer Vision},
   pages={106--125},
-  year={2025},
+  year={2024},
   organization={Springer}
 }
 ```
