@@ -22,6 +22,7 @@ Download the Shot7M2 dataset from [HuggingFace](https://huggingface.co/datasets/
    ```bash
    git lfs install
    ```
+   If not, you can install git-lfs on linux using `sudo apt-get install git-lfs`, check [their repo](https://github.com/git-lfs/git-lfs?tab=readme-ov-file) for more details.
 2. **Clone the dataset**:
     ```bash
     git clone https://huggingface.co/datasets/amathislab/SHOT7M2 data/Shot7M2
