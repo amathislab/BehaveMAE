@@ -31,7 +31,9 @@ files=($(seq 0 $((nr_submissions - 1))))
 
 parallel --line-buffer \
     python evaluator.py \
-        --task mabe_mice --output-dir results \
+        --embeddings_path ../outputs/mice/${experiment}/test_submission_{}.npy \
+       	--output-dir results \
         --labels ../data/MABe22/mouse_triplets_test_labels.npy \
-        --submission ../outputs/mice/${experiment}/test_submission_{}.npy \
+        --partition_method mabe_file \
+	--partition_path split_files/split_info_MABe22_jax_split.json \ 
     ::: "${files[@]}"

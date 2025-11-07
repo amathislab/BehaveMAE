@@ -30,7 +30,9 @@ files=($(seq 0 $((nr_submissions - 1))))
 
 parallel --line-buffer \
     python evaluator.py \
-        --task Shot7M2 --output-dir results \
+        --embeddings_path ../outputs/shot7m2/${experiment}/test_submission_{}.npy \
+       	--output-dir results \
         --labels ../data/Shot7M2/test/benchmark_labels.npy \
-        --submission ../outputs/shot7m2/${experiment}/test_submission_{}.npy \
+        --partition_method mabe_files \
+	--partition_file split_files/split_info_Shot_75_Shot7M2.json \
     ::: "${files[@]}"

@@ -17,9 +17,8 @@ python linear_prober \
     --labels_path [PATH_TO_LABELS] \
     --output-dir [OUTPUT_DIR] \
     --partition_method [random-0.2; mabe_split]
-    --partition_path [./split_files/split_info....json]
+    --partition_path [only if mabe_split : ./split_files/split_info....json]
 ```
-You can download the split file from the MABe22 when downloading the dataset.
 
 ### Python version
 Python = 3.10 or higher
