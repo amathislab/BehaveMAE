@@ -101,13 +101,9 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
 
 We thank the authors of the following repositories for their amazing work, on which part of our code is based:
 - **[Hiera: A Hierarchical Vision Transformer without the Bells-and-Whistles](https://github.com/facebookresearch/hiera)**
-- **[Evaluator code for MABe 2022 Challenge](https://github.com/damaggu/MABe2022)**
 
 ## 🔒 Licensing
 
-This repository is licensed under two different licenses depending on the codebase:
+This repository is licensed under the Apache 2.0 License.
 
-- **Apache 2.0 License**: The majority of the project, including all original code and modifications.
-- **CC BY-NC 4.0 License**: The code inside the `hierAS-eval/` directory is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. This means it cannot be used for commercial purposes.
-
-Please refer to the respective `LICENSE` file in the root of the repository and in `hierAS-eval/` for more details.
+Please refer to the `LICENSE` file in the root of the repository for more details.

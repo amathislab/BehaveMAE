@@ -25,12 +25,10 @@ python run_test.py \
 
 cd hierAS-eval
 
-nr_submissions=$(ls ../outputs/shot7m2/${experiment}/test_submission_* 2>/dev/null | wc -l)
-files=($(seq 0 $((nr_submissions - 1))))
-
-parallel --line-buffer \
-    python evaluator.py \
-        --task Shot7M2 --output-dir results \
-        --labels ../data/Shot7M2/test/benchmark_labels.npy \
-        --submission ../outputs/shot7m2/${experiment}/test_submission_{}.npy \
-    ::: "${files[@]}"
+python linear_prober.py \
+    --embeddings_path ../outputs/shot7m2/${experiment}/ \
+    --labels_path ../data/Shot7M2/test/benchmark_labels.npy \
+    --output_dir results \
+    --partition_method mabe_split \
+    --partition_path split_files/split_info_Shot_75_Shot7M2.json \
+    --dataset shot7m2

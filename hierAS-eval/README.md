@@ -1,6 +1,6 @@
 # Evaluator code for Hierarchical Action Segmentation (hierAS) benchmarks
 
-Based on the evaluator code from the [MABe 2022 Challenge](https://www.aicrowd.com/challenges/multi-agent-behavior-challenge-2022). Thanks to the authors for their great work!
+Code for the evaluation of the embeddings on the MABe22, Shot7M2 and hBABEL datasets.
 
 ## Data checklist
 In order to run the evaluator, you will need
@@ -12,24 +12,39 @@ In order to run the evaluator, you will need
 
 The evaluator supports evaluation for hBABEL, Shot7M2 and MABe22. To start the evaluator, you can run the following
 ```
-python evaluator \
-    --task [choose between: mabe_mice, hBABEL, Shot7M2] \
-    --submission [PATH_TO_SUBMISSION_FILE] \
-    --labels [PATH_TO_LABELS] \
-    --output-dir [OUTPUT_DIR]
+python linear_prober \
+    --embeddings_path [PATH_TO_EMBEDDINGS] \
+    --labels_path [PATH_TO_LABELS] \
+    --output_dir [OUTPUT_DIR] \
+    --partition_method [random-0.2; mabe_split] \
+    --partition_path [only if mabe_split : ./split_files/split_info....json] \
+    --dataset [shot7m2; hbabel; mabe_mice; custom]
 ```
 
-### Python version and packages
+### Custom Datasets
 
-Originally used with Python 3.9 - But should work with any python version above 3.6
+The evaluator supports custom datasets by specifying `--dataset custom`. For custom datasets:
 
-Originally used packages:
+1. **Embeddings format**: Should follow the standard format with `test_submission_*.npy` files containing embeddings
+2. **Labels format**: Should be in .npy format compatible with the MABe22 format
+3. **Summary output**: Will automatically detect available metrics (F1 score, MSE) and provide:
+   - Overall performance statistics
+   - Task-level breakdown (if Task ID column exists)
+   - Sequence vs Frame level breakdown (if applicable)
+   - Standard deviation across multiple evaluation seeds
+
+Example for custom dataset:
+```bash
+python linear_prober.py \
+    --embeddings_path /path/to/your/embeddings/ \
+    --labels_path /path/to/your/labels.npy \
+    --output_dir results \
+    --partition_method random-0.2 \
+    --dataset custom
 ```
-numpy==1.24.3
-scikit-learn==1.2.2
-pandas==2.0.1
-tqdm==4.65.0
-```
+
+### Python version
+Python = 3.10 or higher
 
 ### Evaluator details
 
@@ -38,11 +53,3 @@ The internal flow of the submissions is described [here](https://www.aicrowd.com
 **Training details** - All models trained use linear models using Scikit-Learn using ridge regression. `Ridge` for regression tasks and `RidgeClassifier` for binary classification tasks. Additionally three seeds are trained for every model where the seed is used to split the dataset 90/10 for training and validation. For classification tasks, the `class_weights` parameter is set to `balanced` for both rounds.
 
 **Scoring** - For binary tasks, predictions are taken via 2/3 vote. For regression tasks, predictions are averaged over all seeds. Once predictions are merged, the score calculated with MSE for regression tasks and F1 score for classification tasks.
-
-## Modifications from the original evaluator
-We here detail the modifications from the original [mabe22-eval](https://www.aicrowd.com/challenges/multi-agent-behavior-challenge-2022):
-
-* **Input data loading** : hierAS-eval supports the loading of hBABEL and Shot7M2 meta data files.
-* **Output file generation** : hierAS-eval generates result files adapted for the hBABEL and Shot7M2 datasets.
-
-No change has been performed on the training and evaluation protocols.
