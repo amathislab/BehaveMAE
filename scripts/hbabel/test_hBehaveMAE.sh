@@ -26,14 +26,10 @@ python run_test.py \
 
 cd hierAS-eval
 
-nr_submissions=$(ls ../outputs/hBABEL/${experiment}/test_submission_* 2>/dev/null | wc -l)
-files=($(seq 0 $((nr_submissions - 1))))
-
-parallel --line-buffer \
-    python evaluator.py \
-        --embeddings_path ../outputs/hBABEL/${experiment}/test_submission_{}.npy \
-       	--output-dir results \
-        --labels_path ../data/hBABEL/hbabel_val_test_actions_val_top_120_60_filtered.npy \
-        --partition_method mabe_split \
-	--partition_path split_files/split_info_hBABEL_val_filtered.json \
-    ::: "${files[@]}"
+python linear_prober.py \
+    --embeddings_path ../outputs/hBABEL/${experiment}/ \
+    --labels_path ../data/hBABEL/hbabel_val_test_actions_val_top_120_60_filtered.npy \
+    --output_dir results \
+    --partition_method mabe_split \
+    --partition_path split_files/split_info_hBABEL_val_filtered.json \
+    --dataset hbabel
